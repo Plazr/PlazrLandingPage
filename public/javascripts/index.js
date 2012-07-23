@@ -13,6 +13,7 @@ jQuery(document).ready(function($) {
       data: data,
       success: function() {
         $('button').text('Added!');
+		mixpanel.track("Email added");
       }
     });
 
