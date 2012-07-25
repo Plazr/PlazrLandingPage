@@ -8,7 +8,7 @@ require './helpers/helpers.rb'
 use Mixpanel::Tracker::Middleware, '40c9854b5ded2a6a4bf575788069428d'
 
 set :sass, :style => :compressed
-
+  
 before do 
   @mixpanel = Mixpanel::Tracker.new('40c9854b5ded2a6a4bf575788069428d', request.env, true)
 end
