@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sass'
 require 'mixpanel'
+require 'gibbon'
 
 # require_relative does not exist in ruby 1.8.7
 # This is a fallback -- http://stackoverflow.com/a/4718414/951432
@@ -13,14 +14,17 @@ unless Kernel.respond_to?(:require_relative)
 end
 
 require './helpers/helpers.rb'
+require './config/initializers/load_keys.rb'
 
 ### Set Mixpanel
-use Mixpanel::Tracker::Middleware, '40c9854b5ded2a6a4bf575788069428d'
+use Mixpanel::Tracker::Middleware, KEYS["mixpanel"]
 
 set :sass, :style => :compressed
   
 before do 
-  @mixpanel = Mixpanel::Tracker.new('40c9854b5ded2a6a4bf575788069428d', request.env, true)
+  @mixpanel = Mixpanel::Tracker.new(KEYS["mixpanel"], request.env, true)
+  @gb = Gibbon.new(KEYS["mailchimp"])
+  @list_id = @gb.lists({filters: { list_name: "vdblog" }})["data"].first["id"]
 end
 
 get '/stylesheets/:filename.css' do
@@ -41,6 +45,11 @@ post '/newsletter' do
 
   if params[:email] =~ email_regex and !email_exists?('newsletter.txt', params[:email])
     add_to_newsletter('newsletter.txt', params[:email])
+    
+    @gb.listSubscribe({ id: @list_id, 
+                        email_address: params[:email], 
+                        double_optin: false,
+                        send_welcome: true })
   end
 
   redirect to('/') unless request.xhr?
