@@ -9,6 +9,10 @@
 
 .rvmrc
 
+# KEYS #
+########
+
+config/api_keys.yml
 
 # Logs and databases #
 ######################
