@@ -13,6 +13,7 @@ jQuery(document).ready(function($) {
       data: data,
       success: function() {
         $('button').text('Added!');
+        $('#newsletter input[name=email]').val("");
         mixpanel_events.add_email(email);
       }
     });
