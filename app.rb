@@ -3,6 +3,11 @@ require 'sass'
 require 'mixpanel'
 require 'gibbon'
 
+require './helpers/helpers.rb'
+require './config/initializers/load_keys.rb'
+
+use Mixpanel::Tracker::Middleware, KEYS["mixpanel"], :insert_js_last => true
+
 # require_relative does not exist in ruby 1.8.7
 # This is a fallback -- http://stackoverflow.com/a/4718414/951432
 unless Kernel.respond_to?(:require_relative)
@@ -13,14 +18,7 @@ unless Kernel.respond_to?(:require_relative)
   end
 end
 
-require './helpers/helpers.rb'
-require './config/initializers/load_keys.rb'
-
-### Set Mixpanel
-use Mixpanel::Tracker::Middleware, KEYS["mixpanel"], :insert_js_last => true
-
-  
-configure do 
+configure do
   set :sass, :style => :compressed
 
   set :gb, Gibbon.new(KEYS["mailchimp"])
