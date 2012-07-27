@@ -50,8 +50,9 @@ post '/newsletter' do
   if params[:email] =~ email_regex and !email_exists?('newsletter.txt', params[:email])
     add_to_newsletter('newsletter.txt', params[:email])
 
-    settings.gb.listSubscribe({ :id => settings.list_id, 
-                                :email_address => params[:email], 
+    settings.gb.listSubscribe({ :id => settings.list_id,
+                                :email_address => params[:email],
+                                :merge_vars => {:fname => "Captain", :lname => "User"},
                                 :double_optin => false,
                                 :send_welcome => true })
   end
