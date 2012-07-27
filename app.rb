@@ -17,14 +17,18 @@ require './helpers/helpers.rb'
 require './config/initializers/load_keys.rb'
 
 ### Set Mixpanel
-use Mixpanel::Tracker::Middleware, KEYS["mixpanel"]
+use Mixpanel::Tracker::Middleware, KEYS["mixpanel"], :insert_js_last => true
 
-set :sass, :style => :compressed
   
-before do 
+configure do 
+  set :sass, :style => :compressed
+
+  set :gb, Gibbon.new(KEYS["mailchimp"])
+  set :list_id, settings.gb.lists({filters: { list_name: "vdblog" }})["data"].first["id"]
+end
+
+before do
   @mixpanel = Mixpanel::Tracker.new(KEYS["mixpanel"], request.env, true)
-  @gb = Gibbon.new(KEYS["mailchimp"])
-  @list_id = @gb.lists({filters: { list_name: "vdblog" }})["data"].first["id"]
 end
 
 get '/stylesheets/:filename.css' do
@@ -35,7 +39,7 @@ end
 
 get '/' do
   @mixpanel.track_event("Home Page View")
-  @javascripts = ['/javascripts/jquery.js', '/javascripts/index.js']
+  @javascripts = ['/javascripts/mixpanel_init.js', '/javascripts/jquery.js', '/javascripts/index.js']
 
   erb :index
 end
@@ -44,12 +48,12 @@ post '/newsletter' do
   email_regex = /^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/
 
   if params[:email] =~ email_regex and !email_exists?('newsletter.txt', params[:email])
-    add_to_newsletter('newsletter.txt', params[:email])
+    #add_to_newsletter('newsletter.txt', params[:email])
     
-    @gb.listSubscribe({ id: @list_id, 
-                        email_address: params[:email], 
-                        double_optin: false,
-                        send_welcome: true })
+    #settings.gb.listSubscribe({ id: settings.list_id, 
+    #                            email_address: params[:email], 
+    #                            double_optin: false,
+    #                            send_welcome: true })
   end
 
   redirect to('/') unless request.xhr?

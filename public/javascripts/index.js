@@ -22,8 +22,10 @@ jQuery(document).ready(function($) {
 
   var mixpanel_events = {
     add_email: function(email){
-      mixpanel.register_once({'email': email});
+      mixpanel.people.set({ $email: email,
+                            $created: new Date().toDateString() });
       mixpanel.identify(email);
+      mixpanel.name_tag(email);
       mixpanel.track("Email added");
     },
 
