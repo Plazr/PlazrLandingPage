@@ -48,12 +48,12 @@ post '/newsletter' do
   email_regex = /^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/
 
   if params[:email] =~ email_regex and !email_exists?('newsletter.txt', params[:email])
-    #add_to_newsletter('newsletter.txt', params[:email])
+    add_to_newsletter('newsletter.txt', params[:email])
     
-    #settings.gb.listSubscribe({ id: settings.list_id, 
-    #                            email_address: params[:email], 
-    #                            double_optin: false,
-    #                            send_welcome: true })
+    settings.gb.listSubscribe({ id: settings.list_id, 
+                                email_address: params[:email], 
+                                double_optin: false,
+                                send_welcome: true })
   end
 
   redirect to('/') unless request.xhr?
