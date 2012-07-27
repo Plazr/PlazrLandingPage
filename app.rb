@@ -1,9 +1,35 @@
 require 'sinatra'
 require 'sass'
+require 'mixpanel'
+require 'gibbon'
+
+# require_relative does not exist in ruby 1.8.7
+# This is a fallback -- http://stackoverflow.com/a/4718414/951432
+unless Kernel.respond_to?(:require_relative)
+  module Kernel
+    def require_relative(path)
+      require File.join(File.dirname(caller[0]), path.to_str)
+    end
+  end
+end
 
 require './helpers/helpers.rb'
+require './config/initializers/load_keys.rb'
 
-set :sass, :style => :compressed
+### Set Mixpanel
+use Mixpanel::Tracker::Middleware, KEYS["mixpanel"], :insert_js_last => true
+
+  
+configure do 
+  set :sass, :style => :compressed
+
+  set :gb, Gibbon.new(KEYS["mailchimp"])
+  set :list_id, settings.gb.lists({:filters => { :list_name => "vdblog" }})["data"].first["id"]
+end
+
+before do
+  @mixpanel = Mixpanel::Tracker.new(KEYS["mixpanel"], request.env, true)
+end
 
 get '/stylesheets/:filename.css' do
   content_type 'text/css', :charset => 'utf-8'
@@ -12,7 +38,8 @@ get '/stylesheets/:filename.css' do
 end
 
 get '/' do
-  @javascripts = ['/javascripts/jquery.js', '/javascripts/index.js']
+  @mixpanel.track_event("Home Page View")
+  @javascripts = ['/javascripts/mixpanel_init.js', '/javascripts/jquery.js', '/javascripts/index.js']
 
   erb :index
 end
@@ -22,6 +49,11 @@ post '/newsletter' do
 
   if params[:email] =~ email_regex and !email_exists?('newsletter.txt', params[:email])
     add_to_newsletter('newsletter.txt', params[:email])
+
+    settings.gb.listSubscribe({ :id => settings.list_id, 
+                                :email_address => params[:email], 
+                                :double_optin => false,
+                                :send_welcome => true })
   end
 
   redirect to('/') unless request.xhr?
