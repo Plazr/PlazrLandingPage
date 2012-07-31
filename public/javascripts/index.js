@@ -47,6 +47,7 @@ jQuery(document).ready(function($) {
     },
 
     init: function(){
+	  mixpanel_events.tumblr();
       mixpanel_events.facebook();
       mixpanel_events.twitter();
       mixpanel_events.coming_from();
