@@ -41,11 +41,16 @@ jQuery(document).ready(function($) {
       mixpanel.track_links(".social-media a.twitter", "twitter");
     },
 
+    tumblr: function(){
+      mixpanel.track_links(".social-media a.tumblr", "blog");
+    },
+
     coming_from: function(){
       mixpanel.register({ 'referrer': document.referrer });
     },
 
     init: function(){
+	  mixpanel_events.tumblr();
       mixpanel_events.facebook();
       mixpanel_events.twitter();
       mixpanel_events.coming_from();
