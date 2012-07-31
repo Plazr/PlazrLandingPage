@@ -3,20 +3,23 @@ jQuery.noConflict();
 jQuery(document).ready(function($) {
 
   // Newsletter
-  $('form').on('click', 'button', function() {
+  $('form').submit(function() {
     var email = $("input").val();
     var data = 'email='+ email;
 
-    $.ajax({
-      type: "POST",
-      url: "/newsletter",
-      data: data,
-      success: function() {
-        $('button').text('Added!');
-        $('#newsletter input[name=email]').val("");
-        mixpanel_events.add_email(email);
-      }
-    });
+    var pattern = new RegExp(/^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/);
+    if(pattern.test(email)) {
+      $.ajax({
+        type: "POST",
+        url: "/newsletter",
+        data: data,
+        success: function() {
+            $('#newsletter').remove();
+            $('.social-media').before('<p>Email added, thanks! Now you can check out the links below!</p>');
+            mixpanel_events.add_email(email);
+        }
+      });
+    }
 
     return false;
   });
