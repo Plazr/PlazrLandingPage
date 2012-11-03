@@ -1,7 +1,20 @@
-div.announcement {
-	text-align: center;
-	h1 {
-		font-size: 72px;
-		line-height: 1;
+
+div.wrap {
+	padding: 2em 0 1em 0;
+	width: 100%;
+	background-color: white;
+	height: 100%;
+}
+
+div.main-announcement {
+	padding: 0 0 2em 0;
+	background: #EFEFEF;
+	background-image: url('/images/bg.png');
+	.announcement {
+		text-align: center;
+		h1 {
+			font-size: 72px;
+			line-height: 1;
+		}
 	}
 }
