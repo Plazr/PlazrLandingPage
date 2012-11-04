@@ -6,15 +6,31 @@ div.wrap {
 	height: 100%;
 }
 
+div.top-line {
+	background-color: #333333;
+	height: 3px;
+}
+
 div.main-announcement {
-	padding: 0 0 2em 0;
-	background: #EFEFEF;
-	background-image: url('/images/bg.png');
+	padding: 0.8em 0 2em 0;
+	// background: #EFEFEF;
+	// background-image: url('/images/bg.png');
+	border-bottom: 1px solid #EFEFEF;
 	.announcement {
 		text-align: center;
 		h1 {
 			font-size: 72px;
 			line-height: 1;
 		}
+	}
+}
+
+@media (max-width: 767px) {
+
+	div.top-line {
+		display: none;
+	}
+	div.main-announcement {
+		background: white;
 	}
 }
