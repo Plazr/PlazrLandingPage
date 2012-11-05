@@ -1,3 +1,19 @@
+@mixin social-icons {
+	height: 60px;
+	width: 50px;
+	float: left;
+}
+
+div.social {
+	div.facebook {
+		@include social-icons;
+		background: url('/icons/square/facebook.png') no-repeat left center;
+	}
+	div.mail {
+		@include social-icons;
+		background: url('/icons/square/mail.png') no-repeat left center;
+	}
+}
 
 div.wrap {
 	padding: 2em 0 1em 0;
@@ -23,6 +39,29 @@ div.main-announcement {
 			line-height: 1;
 		}
 	}
+}
+
+h3.sub-head {
+	padding: 0 1em 0 1em;
+}
+
+h3.sub-head.right {
+	text-align: right;
+	background-image: -ms-linear-gradient(right, #EFEFEF 0%, #FAFAFA 100%);
+	background-image: -moz-linear-gradient(right, #EFEFEF 0%, #FAFAFA 100%);
+	background-image: -o-linear-gradient(right, #EFEFEF 0%, #FAFAFA 100%);
+	background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #EFEFEF), color-stop(1, #FAFAFA));
+	background-image: -webkit-linear-gradient(right, #EFEFEF 0%, #FAFAFA 100%);
+	background-image: linear-gradient(to left, #EFEFEF 0%, #FAFAFA 100%);
+}
+
+h3.sub-head.left {
+	background-image: -ms-linear-gradient(left, #EFEFEF 0%, #FAFAFA 100%);
+	background-image: -moz-linear-gradient(left, #EFEFEF 0%, #FAFAFA 100%);
+	background-image: -o-linear-gradient(left, #EFEFEF 0%, #FAFAFA 100%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #EFEFEF), color-stop(1, #FAFAFA));
+	background-image: -webkit-linear-gradient(left, #EFEFEF 0%, #FAFAFA 100%);
+	background-image: linear-gradient(to right, #EFEFEF 0%, #FAFAFA 100%);
 }
 
 @media (max-width: 767px) {
