@@ -32,21 +32,33 @@ div.top-line {
 	height: 3px;
 }
 
-div.main-announcement {
-	padding: 0.8em 0 1.5em 0;
-	background-color: $color2;
-	// background: #EFEFEF;
-	// background-image: url('/images/bg.png');
-	border-bottom: 1px solid $color1;
-	color: white;
-	-webkit-box-shadow:  2px 2px 2px 2px #EFEFEF;
-	box-shadow:  2px 2px 2px 2px #EFEFEF;
+.wrap-top-bar {
+	-webkit-box-shadow:  0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	border-bottom: white solid 1px;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	width: 100%;
 	.top-bar {
-		border-bottom: white solid 1px;
+		padding: 0.5em 0 0.5em 0;
 		h3 {
 			margin: 0.1em 0 0.1em 0;
 		}
 	}
+}
+
+div.main-announcement {
+	padding: 3.5em 0 1.5em 0;
+	background-color: $color2;
+	// background: #EFEFEF;
+	// background-image: url('/images/bg.png');
+	border-bottom: 1px solid $color1;
+	border-top: 1px solid $color1;
+	color: white;
+	// -webkit-box-shadow:  0 0 10px rgba(0, 0, 0, 0.5);
+	// box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 	.announcement {
 		text-align: center;
 		border-radius: 20px;
