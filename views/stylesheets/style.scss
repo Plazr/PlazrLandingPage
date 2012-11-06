@@ -33,15 +33,14 @@ div.top-line {
 }
 
 div.main-announcement {
-	padding: 0.8em 0 2em 0;
+	padding: 0.8em 0 1.5em 0;
 	background-color: $color2;
 	// background: #EFEFEF;
 	// background-image: url('/images/bg.png');
 	border-bottom: 1px solid $color1;
 	color: white;
--webkit-box-shadow:  2px 2px 2px 2px #EFEFEF;
-
-        box-shadow:  2px 2px 2px 2px #EFEFEF;
+	-webkit-box-shadow:  2px 2px 2px 2px #EFEFEF;
+	box-shadow:  2px 2px 2px 2px #EFEFEF;
 	.top-bar {
 		border-bottom: white solid 1px;
 		h3 {
