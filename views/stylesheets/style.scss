@@ -46,7 +46,7 @@ body {
 .wrap.top-container {
 	-webkit-box-shadow:  0 0 10px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	border-bottom: black solid 1px;
+	// border-bottom: black solid 1px;
 	background-color: $color2;
 	background-image: -webkit-linear-gradient(top,#308CCB,#2A7CBE);
 	background-image: -moz-linear-gradient(center top , #308CCB, #2A7CBE);
@@ -74,7 +74,7 @@ body {
 .announcement-container {
 	padding: 9em 0 8em 0;
 	background-color: $color0;
-	@include hr-border-bottom;
+	// @include hr-border-bottom;
 	border-top: 1px solid $color3;
 	color: $text;
 	.announcement {
