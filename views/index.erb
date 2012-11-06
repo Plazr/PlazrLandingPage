@@ -1,3 +1,22 @@
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Subscribe to our Newsletter</h3>
+  </div>
+  <div class="modal-body">
+  	<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
+  	<div class="input-append">
+    	<input type="email" class="input-large" placeholder="me@me.com">
+    	<button type="submit" class="btn btn-primary">Subscribe</button>
+    </div>
+  </div>
+<!--   <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div> -->
+</div>
+
 <div class="main-announcement">
 	<div class="container">
 		<div class="row-fluid top-bar">
@@ -21,7 +40,7 @@
 				<div class="row-fluid">
 					<p class="lead">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
 					<p class="input-append">
-						<button id="newsletter" type="submit" class="btn btn-primary btn-large">Subscribe to our newsletter</button>
+						<button data-toggle="modal" href="#myModal" type="submit" class="btn btn-primary btn-large">Subscribe to our newsletter</button>
 					</p>
 				</div>
 			</div>

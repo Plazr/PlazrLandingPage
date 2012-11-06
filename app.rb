@@ -14,7 +14,7 @@ get '/stylesheets/:filename.css' do
 end
 
 get '/' do
-	@javascripts = ['/javascripts/jquery.js', '/javascripts/app.js']
+	@javascripts = ['/javascripts/jquery.js', '/javascripts/bootstrap-modal.js', '/javascripts/app.js']
 	erb :index
 end
 
