@@ -1,5 +1,11 @@
+$color1: #6988E3;
+$color2: #95BEF6;
+$color3: #C3DFFF;
+$color4: #B6D4F6;
+$color5: #B7D9F4;
+
 @mixin social-icons {
-	height: 60px;
+	height: 40px;
 	width: 50px;
 	float: left;
 }
@@ -18,7 +24,6 @@ div.social {
 div.wrap {
 	padding: 2em 0 1em 0;
 	width: 100%;
-	background-color: white;
 	height: 100%;
 }
 
@@ -29,45 +34,29 @@ div.top-line {
 
 div.main-announcement {
 	padding: 0.8em 0 2em 0;
+	background-color: $color2;
 	// background: #EFEFEF;
 	// background-image: url('/images/bg.png');
-	border-bottom: 1px solid #EFEFEF;
+	border-bottom: 1px solid $color1;
+	color: white;
+-webkit-box-shadow:  2px 2px 2px 2px #EFEFEF;
+
+        box-shadow:  2px 2px 2px 2px #EFEFEF;
+	.top-bar {
+		border-bottom: white solid 1px;
+		h3 {
+			margin: 0.1em 0 0.1em 0;
+		}
+	}
 	.announcement {
 		text-align: center;
+		border-radius: 20px;
+		padding: 1em 0 0 0;
 		h1 {
 			font-size: 72px;
 			line-height: 1;
 		}
-		.logo {
-			height: 165px;
-			wdith: 165px;
-			background: url('/images/megaphone.png') no-repeat left center;
-			background-size: 150px;
-		}
 	}
-}
-
-h3.sub-head {
-	padding: 0 1em 0 1em;
-}
-
-h3.sub-head.right {
-	text-align: right;
-	background-image: -ms-linear-gradient(right, #EFEFEF 0%, #FAFAFA 100%);
-	background-image: -moz-linear-gradient(right, #EFEFEF 0%, #FAFAFA 100%);
-	background-image: -o-linear-gradient(right, #EFEFEF 0%, #FAFAFA 100%);
-	background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #EFEFEF), color-stop(1, #FAFAFA));
-	background-image: -webkit-linear-gradient(right, #EFEFEF 0%, #FAFAFA 100%);
-	background-image: linear-gradient(to left, #EFEFEF 0%, #FAFAFA 100%);
-}
-
-h3.sub-head.left {
-	background-image: -ms-linear-gradient(left, #EFEFEF 0%, #FAFAFA 100%);
-	background-image: -moz-linear-gradient(left, #EFEFEF 0%, #FAFAFA 100%);
-	background-image: -o-linear-gradient(left, #EFEFEF 0%, #FAFAFA 100%);
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #EFEFEF), color-stop(1, #FAFAFA));
-	background-image: -webkit-linear-gradient(left, #EFEFEF 0%, #FAFAFA 100%);
-	background-image: linear-gradient(to right, #EFEFEF 0%, #FAFAFA 100%);
 }
 
 @media (max-width: 767px) {
@@ -75,6 +64,7 @@ h3.sub-head.left {
 	div.top-line {
 		display: none;
 	}
+
 	div.main-announcement {
 		background: white;
 	}
