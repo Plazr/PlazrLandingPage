@@ -13,9 +13,10 @@ $color4: #F6F6F8;
 $text: #333333;
 
 @mixin social-icons {
-	height: 40px;
-	width: 50px;
+	height: 64px;
+	width: 64px;
 	float: left;
+	padding: 0 16px 0 16px;
 }
 
 @mixin hr-border-bottom {
@@ -36,25 +37,27 @@ body {
 	font-family: 'Varela';
 	// font-size: 20px;
 	line-height: 1;
-	@include hr-border-bottom;
-	padding: 2em 0 2.5em 0;
+	// @include hr-border-bottom;
+	padding: 5em 0 2.5em 0;
 	color: $color0;
-	// background-color: $color2;
-	// background-image: -webkit-linear-gradient(top,#308CCB,#2A7CBE);
+	background-color: $color0;
+	background-image: -webkit-linear-gradient(top,#308CCB,#2A7CBE);
 }
 
 .wrap.social-container {
-	@include hr-border-bottom;
 	background-color: $color0;
-	color: $text;
+	padding: 0 0 3em 0;
+	@include hr-border-bottom;
 	.social {
+		width: 192px;
+		margin: 0 auto;
 		.facebook {
 			@include social-icons;
-			background: url('/icons/square/facebook.png') no-repeat left center;
+			background: url('/icons/roundblack64/facebook.png') no-repeat left center;
 		}
 		.mail {
 			@include social-icons;
-			background: url('/icons/square/mail.png') no-repeat left center;
+			background: url('/icons/roundblack64/tumblr.png') no-repeat left center;
 		}
 	}
 }
@@ -72,6 +75,7 @@ body {
 	.top-bar {
 		padding: 0.5em 0 0.5em 0;
 		h3 {
+			font-family: 'Lemon';
 			margin: 0.1em 0 0.1em 0;
 		}
 	}
@@ -88,18 +92,29 @@ body {
 }
 
 .announcement-container {
-	padding: 9em 0 8em 0;
-	background-color: $color4;
-	@include hr-border-bottom;
+	padding: 11em 0 7em 0;
+	background-color: $color0;
+	// @include hr-border-bottom;
 	// border-top: 1px solid $color3;
 	color: $text;
 	.announcement {
-		text-align: center;
-		border-radius: 20px;
-		padding: 1em 0 0 0;
 		h1 {
+			margin: 0 0 0.7em 0;
 			font-size: 72px;
 			line-height: 1;
+			.logo {
+				// font-family: 'Lemon';
+			}
+		}
+		.input-append {
+			text-align: center;
+			input {
+				// font-size: 25px;
+				// height: 1em;
+			}
+		}
+		.lead {
+			margin: 0 0 1.5em 0;
 		}
 	}
 }
