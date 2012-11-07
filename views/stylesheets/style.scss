@@ -23,7 +23,7 @@ $text: #333333;
 }
 
 body {
-	// background-color: $color2;
+	// background-color: $color4;
 	background-color: #2A7CBE;
 	// background-image: -webkit-linear-gradient(top,#308CCB,#2A7CBE);
 }
@@ -33,7 +33,7 @@ body {
 }
 
 .wrap.about-container {
-	// font-family: 'Armata';
+	font-family: 'Varela';
 	// font-size: 20px;
 	line-height: 1;
 	@include hr-border-bottom;
@@ -43,10 +43,26 @@ body {
 	// background-image: -webkit-linear-gradient(top,#308CCB,#2A7CBE);
 }
 
+.wrap.social-container {
+	@include hr-border-bottom;
+	background-color: $color0;
+	color: $text;
+	.social {
+		.facebook {
+			@include social-icons;
+			background: url('/icons/square/facebook.png') no-repeat left center;
+		}
+		.mail {
+			@include social-icons;
+			background: url('/icons/square/mail.png') no-repeat left center;
+		}
+	}
+}
+
 .wrap.top-container {
 	-webkit-box-shadow:  0 0 10px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	// border-bottom: black solid 1px;
+	@include hr-border-bottom;
 	background-color: $color2;
 	background-image: -webkit-linear-gradient(top,#308CCB,#2A7CBE);
 	background-image: -moz-linear-gradient(center top , #308CCB, #2A7CBE);
@@ -73,9 +89,9 @@ body {
 
 .announcement-container {
 	padding: 9em 0 8em 0;
-	background-color: $color0;
-	// @include hr-border-bottom;
-	border-top: 1px solid $color3;
+	background-color: $color4;
+	@include hr-border-bottom;
+	// border-top: 1px solid $color3;
 	color: $text;
 	.announcement {
 		text-align: center;
