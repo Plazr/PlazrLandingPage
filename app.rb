@@ -5,11 +5,6 @@ require 'gibbon'
 require './helpers/helpers.rb'
 require './config/initializers/keys.rb'
 
-configure do
-	set :sass, :style => :compressed
-	set :gb, Gibbon.new(KEYS["mailchimp"])
-	set :newsletter, KEYS["mailchimp"]
-end
 
 # require_relative does not exist in ruby 1.8.7
 # This is a fallback -- http://stackoverflow.com/a/4718414/951432
@@ -19,6 +14,12 @@ unless Kernel.respond_to?(:require_relative)
       require File.join(File.dirname(caller[0]), path.to_str)
     end
   end
+end
+
+configure do
+	set :sass, :style => :compressed
+	set :gb, Gibbon.new(KEYS["mailchimp"])
+	set :newsletter, KEYS["mailchimp"]
 end
 
 get '/stylesheets/:filename.css' do
