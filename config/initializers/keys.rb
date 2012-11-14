@@ -1,1 +1,1 @@
-KEYS = {mailchimp: "ce1b285cd67bce01c0239d31e089cb1f-us6", newsletter: "d07c8f8785"}
+KEYS = YAML.load_file("#{settings.root}/config/api_keys.yml")
