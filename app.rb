@@ -22,7 +22,7 @@ configure do
 		set :gb, Gibbon.new(KEYS["mailchimp"])
 		set :newsletter, KEYS["mailchimp"]
 	else
-		set :gb, ENV['mailchimp']
+		set :gb, Gibbon.new(ENV['mailchimp'])
 		set :newsletter, ENV['mailchimp']
 	end
 end
