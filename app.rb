@@ -42,7 +42,7 @@ end
 post '/newsletter' do
 	email_regex = /^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/
 	if params[:email] =~ email_regex
-		settings.gb.listSubscribe(:id => settings.newsletter, :email_address => params[:email], :double_optin => false)
+		settings.gb.listSubscribe(:id => settings.newsletter, :email_address => params[:email])
 		# if params[:email] =~ email_regex and !email_exists?('newsletter.txt', params[:email])
 		# add_to_newsletter('newsletter.txt', params[:email])
 
