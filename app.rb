@@ -1,10 +1,13 @@
 require 'sinatra'
 require 'sass'
+require 'gibbon'
 
 require './helpers/helpers.rb'
+# require './config/initializers/keys.rb'
 
 configure do
 	set :sass, :style => :compressed
+	set :gb, Gibbon.new(KEYS["mailchimp"])
 end
 
 get '/stylesheets/:filename.css' do
@@ -14,10 +17,24 @@ get '/stylesheets/:filename.css' do
 end
 
 get '/' do
-	@javascripts = ['/javascripts/jquery.js', '/javascripts/bootstrap-modal.js', '/javascripts/app.js']
+	@javascripts = ['/javascripts/jquery.js', '/javascripts/bootstrap-modal.js', '/javascripts/verimail.jquery.min.js', '/javascripts/verimail.min.js', '/javascripts/app.js']
 	erb :index
 end
 
+# tem de se verificar se é realmente um email e se não vai repetido
 post '/newsletter' do
+	email_regex = /^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/
+	if params[:email] =~ email_regex
+		gb.listSubscribe(:id => KEYS["mailchimp"], :email_address => params[:email], :double_optin => false)
+		# if params[:email] =~ email_regex and !email_exists?('newsletter.txt', params[:email])
+		# add_to_newsletter('newsletter.txt', params[:email])
+
+		# settings.gb.listSubscribe({ :id => settings.list_id,
+		# 	:email_address => params[:email],
+		# 	:merge_vars => {:fname => "Captain", :lname => "User"},
+		# 	:double_optin => false,
+		# 	:send_welcome => true })
+	end
+
 	redirect to('/') unless request.xhr?
 end
