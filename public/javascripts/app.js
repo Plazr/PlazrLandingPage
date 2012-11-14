@@ -17,7 +17,9 @@ $(function() {
 					messageContainer.append("Did you mean "+suggestion+"?").animate({opacity: 100}).delay(1000).animate({opacity: 0});
 				} else {
 					// console.log("VALID EMAIL");
-					$.post('/newsletter', {email: inputEmailVal}, function(data) {
+					messageContainer.append("Sending...").animate({opacity: 100});
+					$.post('http://whispering-hollows-5796.herokuapp.com/newsletter', {email: inputEmailVal}, function(data) {
+						messageContainer.animate({opacity: 0});
 						$(messageContainer.append("Subscribed!").animate({opacity: 100}).delay(1000).animate({opacity: 0}));
 					});
 				}
