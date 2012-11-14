@@ -4,23 +4,22 @@ $(function() {
 	messageContainer.css("opacity", 0);
 	$("#subscribe").click(function() {
 		var inputEmailVal = $("input#subscribe-email").val();
-		messageContainer.text("");
 		verimail.verify(inputEmailVal, function(status, message, suggestion) {
 			if(status < 0) {
 				if(suggestion) {
-					messageContainer.append("Did you mean "+suggestion+"?").animate({opacity: 100}).delay(1000).animate({opacity: 0});
+					messageContainer.text("Did you mean "+suggestion+"?").animate({opacity: 100}).delay(1000).animate({opacity: 0});
 				} else {
-					messageContainer.append("Invalid email!").animate({opacity: 100}).delay(1000).animate({opacity: 0});
+					messageContainer.text("Invalid email!").animate({opacity: 100}).delay(1000).animate({opacity: 0});
 				}
 			} else {
 				if(suggestion) {
-					messageContainer.append("Did you mean "+suggestion+"?").animate({opacity: 100}).delay(1000).animate({opacity: 0});
+					messageContainer.text("Did you mean "+suggestion+"?").animate({opacity: 100}).delay(1000).animate({opacity: 0});
 				} else {
 					// console.log("VALID EMAIL");
-					messageContainer.append("Sending...").animate({opacity: 100});
+					messageContainer.text("Sending...").animate({opacity: 100});
 					$.post('http://whispering-hollows-5796.herokuapp.com/newsletter', {email: inputEmailVal}, function(data) {
 						messageContainer.animate({opacity: 0});
-						$(messageContainer.append("Subscribed!").animate({opacity: 100}).delay(1000).animate({opacity: 0}));
+						$(messageContainer.text("Subscribed!").animate({opacity: 100}).delay(1000).animate({opacity: 0}));
 					});
 				}
 			}
