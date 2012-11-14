@@ -17,13 +17,13 @@ end
 
 configure do
 	set :sass, :style => :compressed
-	if ENV['RACK_ENV'] == :development
+	if ENV['RACK_ENV'] == "development"
 		KEYS = YAML.load_file("#{settings.root}/config/api_keys.yml")
 		set :gb, Gibbon.new(KEYS["mailchimp"])
-		set :newsletter, KEYS["mailchimp"]
+		set :newsletter, KEYS["newsletter"]
 	else
 		set :gb, Gibbon.new(ENV['mailchimp'])
-		set :newsletter, ENV['mailchimp']
+		set :newsletter, ENV['newsletter']
 	end
 end
 

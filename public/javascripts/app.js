@@ -18,7 +18,7 @@ $(function() {
 					// console.log("VALID EMAIL");
 					messageContainer.text("Sending...").animate({opacity: 100});
 					$.post('/newsletter', {email: inputEmailVal}, function(data) {
-						messageContainer.animate({opacity: 0});
+						messageContainer.animate({opacity: 0}).delay(100);
 						$(messageContainer.text("Subscribed!").animate({opacity: 100}).delay(1000).animate({opacity: 0}));
 					});
 				}
