@@ -3,7 +3,6 @@ require 'sass'
 require 'gibbon'
 
 require './helpers/helpers.rb'
-require './config/initializers/keys.rb'
 
 
 # require_relative does not exist in ruby 1.8.7
@@ -18,8 +17,14 @@ end
 
 configure do
 	set :sass, :style => :compressed
-	set :gb, Gibbon.new(KEYS["mailchimp"])
-	set :newsletter, KEYS["mailchimp"]
+	if ENV['RACK_ENV'] == :development
+		KEYS = YAML.load_file("#{settings.root}/config/api_keys.yml")
+		set :gb, Gibbon.new(KEYS["mailchimp"])
+		set :newsletter, KEYS["mailchimp"]
+	else
+		set :gb, ENV['mailchimp']
+		set :newsletter, ENV['mailchimp']
+	end
 end
 
 get '/stylesheets/:filename.css' do
