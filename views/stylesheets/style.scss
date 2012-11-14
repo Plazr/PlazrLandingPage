@@ -17,6 +17,20 @@
 
 }
 
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url('../font/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Lemon';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lemon Regular'), local('Lemon-Regular'), url('../font/l0fJcP4L58UzH_xdgIUVUqCWcynf_cDxXwCLxiixG1c.woff') format('woff');
+}
+
 $color0: #FFFFFF;
 $color1: #515151;
 $color2: #1A82F7;
