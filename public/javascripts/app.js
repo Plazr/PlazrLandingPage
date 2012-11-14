@@ -18,7 +18,7 @@ $(function() {
 				} else {
 					// console.log("VALID EMAIL");
 					$.post('/newsletter', {email: inputEmailVal}, function(data) {
-						console.log(data);
+						$(messageContainer.append("Subscribed!").animate({opacity: 100}).delay(1000).animate({opacity: 0}));
 					});
 				}
 			}

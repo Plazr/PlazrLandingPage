@@ -3,11 +3,12 @@ require 'sass'
 require 'gibbon'
 
 require './helpers/helpers.rb'
-# require './config/initializers/keys.rb'
+require './config/initializers/keys.rb'
 
 configure do
 	set :sass, :style => :compressed
 	set :gb, Gibbon.new(KEYS["mailchimp"])
+	set :newsletter, KEYS["mailchimp"]
 end
 
 get '/stylesheets/:filename.css' do
@@ -25,7 +26,7 @@ end
 post '/newsletter' do
 	email_regex = /^[a-zA-Z0-9_.+\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-.]+$/
 	if params[:email] =~ email_regex
-		gb.listSubscribe(:id => KEYS["mailchimp"], :email_address => params[:email], :double_optin => false)
+		settings.gb.listSubscribe(:id => settings.newsletter, :email_address => params[:email], :double_optin => false)
 		# if params[:email] =~ email_regex and !email_exists?('newsletter.txt', params[:email])
 		# add_to_newsletter('newsletter.txt', params[:email])
 
