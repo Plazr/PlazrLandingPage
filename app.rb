@@ -34,7 +34,8 @@ get '/stylesheets/:filename.css' do
 end
 
 get '/' do
-	@javascripts = ['/javascripts/jquery.js', '/javascripts/bootstrap-modal.js', '/javascripts/verimail.jquery.min.js', '/javascripts/verimail.min.js', '/javascripts/app.js']
+	@javascripts = ['/javascripts/jquery.js', '/javascripts/bootstrap-modal.js', '/javascripts/verimail.jquery.min.js',
+		'/javascripts/verimail.min.js', '/javascripts/app.js', '/javascripts/jquery.scrollTo-min.js']
 	erb :index
 end
 

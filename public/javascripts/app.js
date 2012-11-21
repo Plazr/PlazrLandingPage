@@ -1,4 +1,17 @@
 $(function() {
+
+	/* Remove the html scroll and create scroll events. */
+	$('div.about-container').removeAttr('id');
+	$('a[href="#headerAboutPlazr"]').click(function() {
+		$.scrollTo($('div.about-container'), 500);
+	});
+	$('div.we-container').removeAttr('id');
+	$('a[href="#headerAboutUs"]').click(function() {
+		$.scrollTo($('div.we-container'), 500);
+	});
+
+
+	/* Newsletter subscription. */
 	var verimail = new Comfirm.AlphaMail.Verimail();
 	var messageContainer = $("#subscribe-suggestion");
 	messageContainer.css("opacity", 0);
@@ -15,7 +28,6 @@ $(function() {
 				if(suggestion) {
 					messageContainer.text("Did you mean "+suggestion+"?").animate({opacity: 100}).delay(1000).animate({opacity: 0});
 				} else {
-					// console.log("VALID EMAIL");
 					messageContainer.text("Sending...").animate({opacity: 100});
 					$.post('/newsletter', {email: inputEmailVal}, function(data) {
 						messageContainer.animate({opacity: 0}).delay(100);
