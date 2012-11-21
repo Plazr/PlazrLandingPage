@@ -9,6 +9,10 @@ $(function() {
 	$('a[href="#headerAboutUs"]').click(function() {
 		$.scrollTo($('div.we-container'), 500);
 	});
+	$('div.announcement-container').removeAttr('id');
+	$('a[href="#headerAnn"]').click(function() {
+		$.scrollTo($('div.announcement-container'), 500);
+	});
 
 
 	/* Newsletter subscription. */
