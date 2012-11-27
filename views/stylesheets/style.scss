@@ -105,11 +105,17 @@ h2.head {
 	color: $color0;
 	background-color: #0574b2;
 	@include hr-border-bottom;
-	h5 {
-		margin: 1.5em 0 0 0;
+
+	h3 {
+		img {
+			padding: 0 1em 0 0;
+		}
+		padding-bottom: 0.3em;
 	}
+
 	p {
 		/*color: $text;*/
+		padding: 0 0 1em 0;
 		font-size: 17px;
 		line-height: 1.5em;
 	}
