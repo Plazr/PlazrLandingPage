@@ -4,6 +4,11 @@
 }
 
 @font-face {
+	font-family: 'Tabitha';
+	src: url('../font/tabitha.ttf');
+}
+
+@font-face {
 	font-family: 'ADELE';
 	src: url('../font/adele-light-webfont.eot');
 	src: url('../font/adele-light-webfont.eot?#iefix') format('embedded-opentype'),
@@ -174,9 +179,12 @@ h2.head {
 	top: 0;
 	// logo
 	.top-bar {
-		padding: 0.5em 0 0.5em 0;
+		padding: 0.4em 0 0.4em 0;
 		h3 {
-			font-family: 'Lemon';
+			background: url('../images/logo.png') left top no-repeat;
+			background-size: auto 1.2em;
+			font-family: 'Tabitha';
+			padding-left: 1.4em;
 			margin: 0.1em 0 0.1em 0;
 			a {
 				color: #333333;
