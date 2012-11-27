@@ -39,6 +39,10 @@ $intel-blue: #0091DA;
 $text: #333333;
 $text-white: #FFFFFF;
 
+@mixin ecommerce {
+	background: url('../images/ecommerce.jpg') right bottom no-repeat;
+}
+
 @mixin social-icons {
 	height: 64px;
 	width: 64px;
@@ -95,15 +99,17 @@ h2.head {
 }
 
 .wrap.about-container {
+	@include ecommerce;
 	line-height: 1;
 	padding: 12em 0 12em 0;
 	color: $color0;
-	background-color: $text;
+	background-color: #0574b2;
 	@include hr-border-bottom;
 	h5 {
 		margin: 1.5em 0 0 0;
 	}
 	p {
+		/*color: $text;*/
 		font-size: 17px;
 		line-height: 1.5em;
 	}
@@ -111,7 +117,9 @@ h2.head {
 
 .wrap.we-container {
 	padding: 10em 0 10em 0;
-	background-color: $intel-blue;
+	/*background-color: $intel-blue;*/
+	background-color: $text;
+	color: white;
 }
 
 .wrap.social-container {
