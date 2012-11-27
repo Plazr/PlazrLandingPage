@@ -69,7 +69,7 @@ h2.head {
 }
 
 .announcement-container {
-	padding: 12em 0 10em 0;
+	padding: 12em 0 12em 0;
 	background-color: white;
 	@include hr-border-bottom;
 	color: $text;
@@ -101,7 +101,7 @@ h2.head {
 .wrap.about-container {
 	@include ecommerce;
 	line-height: 1;
-	padding: 12em 0 12em 0;
+	padding: 11em 0 13em 0;
 	color: $color0;
 	background-color: #0574b2;
 	@include hr-border-bottom;
@@ -115,7 +115,7 @@ h2.head {
 		}
 		position: relative;
 		padding: 0.3em 0 1em 84px;
-	
+	}
 
 	p {
 		/*color: $text;*/
