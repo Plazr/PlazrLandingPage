@@ -76,6 +76,7 @@ h2.head {
 
 
 .announcement-container {
+	height: 100%;
 	padding: 12em 0 12em 0;
 	background-color: white;
 	@include hr-border-bottom;
@@ -117,6 +118,7 @@ h2.head {
 }
 
 .wrap.about-container {
+	height: 100%;
 	@include ecommerce;
 	@include hr-border-bottom;
 	line-height: 1;
@@ -144,6 +146,7 @@ h2.head {
 }
 
 .wrap.we-container {
+	height: 100%;
 	padding: 24em 0 15em 0;
 	/*background-color: $intel-blue;*/
 	// background-color: $text;
@@ -253,13 +256,5 @@ h2.head {
 			padding: 0.3em 2em 0.3em 2em;
 		}
 	}
-	.wrap.we-container {
-		// background-size: auto 100%;
-	}
 }
 
-@media (min-width: 768px) and (max-width: 979px) {
-	.wrap.we-container {
-		// background-size: auto 100%;
-	}
-}
