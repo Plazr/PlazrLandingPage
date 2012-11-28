@@ -1,20 +1,27 @@
 $(function() {
 
-	var windowWidth = $(window).width();
-	var windowHeight = $(window).height();
+	function setPaddings() {
+		var windowHeight = $(window).height();
+		var annContainer = '.announcement-container';
+		var aboutContainer = '.about-container';
+		var weContainer = '.we-container';
 
-	// $('.announcement-container').css({'height':windowHeight});
-	var annPadding = (windowHeight - $('.announcement-container .container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
-	$('.announcement-container').css({'padding-top':annPadding,'padding-bottom':annPadding})
+		// $('.announcement-container').css({'height':windowHeight});
+		var annPadding = (windowHeight - $(annContainer).find('.container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
+		console.log(annPadding);
+		$(annContainer).css({'padding-top':annPadding,'padding-bottom':annPadding})
 
-	var annPadding = (windowHeight - $('.about-container .container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
-	$('.about-container').css({'padding-top':annPadding,'padding-bottom':annPadding})
+		var annPadding = (windowHeight - $(aboutContainer).find('.container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
+		$(aboutContainer).css({'padding-top':annPadding,'padding-bottom':annPadding})
 
-	var annPadding = (windowHeight - $('.we-container .container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
-	$('.we-container').css({'padding-top':annPadding,'padding-bottom':annPadding})
+		var annPadding = (windowHeight - $(weContainer).find('.container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
+		$(weContainer).css({'padding-top':annPadding,'padding-bottom':annPadding})
+	}
 
-	console.log(annPadding);
-	console.log(windowHeight);
+	setPaddings();
+	$(window).resize(function() {
+		setPaddings();
+	});
 
 	/* Remove the html scroll and create scroll events. */
 	$('div.about-container').removeAttr('id');
