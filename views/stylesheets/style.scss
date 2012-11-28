@@ -120,7 +120,7 @@ h2.head {
 	@include ecommerce;
 	@include hr-border-bottom;
 	line-height: 1;
-	padding: 11em 0 13em 0;
+	padding: 10em 0 13em 0;
 	color: $color0;
 	background-color: $intel-blue;
 	h2, h3 {
@@ -184,7 +184,7 @@ h2.head {
 		padding: 0.4em 0 0.4em 0;
 		h3 {
 			background: url('../images/logo.png') left top no-repeat;
-			background-size: auto 1.2em;
+			background-size: auto 1.3em;
 			font-family: 'Tabitha';
 			padding-left: 1.4em;
 			margin: 0.1em 0 0.1em 0;
@@ -219,7 +219,18 @@ h2.head {
 	body {
 		padding: 0;
 	}
-	.container {
-		padding: 2em;
+	.we-container, .announcement-container, .about-container {
+		.container {
+			padding: 2em;
+		}
+	}
+	.wrap.about-container {
+		background: none;
+		background-color: $intel-blue;
+	}
+	.top-container {
+			.container {
+			padding: 0.3em 2em 0.3em 2em;
+		}
 	}
 }
