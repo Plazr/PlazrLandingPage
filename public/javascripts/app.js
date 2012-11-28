@@ -1,5 +1,18 @@
 $(function() {
 
+	var windowWidth = $(window).width();
+	var windowHeight = $(window).height();
+
+	// $('.announcement-container').css({'height':windowHeight});
+	var annPadding = (windowHeight - $('.announcement-container .container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
+	$('.announcement-container').css({'padding-top':annPadding,'padding-bottom':annPadding})
+
+	var annPadding = (windowHeight - $('.about-container .container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
+	$('.about-container').css({'padding-top':annPadding,'padding-bottom':annPadding})
+
+	console.log(annPadding);
+	console.log(windowHeight);
+
 	/* Remove the html scroll and create scroll events. */
 	$('div.about-container').removeAttr('id');
 	$('a[href="#headerAboutPlazr"]').click(function() {
