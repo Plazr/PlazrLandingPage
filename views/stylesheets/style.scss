@@ -144,10 +144,25 @@ h2.head {
 }
 
 .wrap.we-container {
-	padding: 10em 0 10em 0;
+	padding: 28em 0 16em 0;
 	/*background-color: $intel-blue;*/
-	background-color: $text;
-	color: white;
+	// background-color: $text;
+	background: url('../images/IMG_4556.JPG') no-repeat top left;
+	background-size: 100% auto;
+	color: $text;
+	h2 {
+		color: $text;
+	}
+	span.wrap {
+		padding: 0.2em;
+		background-color: rgba(255, 255, 255, 0.6);
+		// filter: alpha(opacity=20);
+  //   	opacity: 0.2;
+  //   	span {
+  //   		filter: alpha(opacity=100);
+  //   		opacity: 1;
+  //   	}
+	}
 }
 
 .wrap.social-container {
@@ -232,5 +247,14 @@ h2.head {
 			.container {
 			padding: 0.3em 2em 0.3em 2em;
 		}
+	}
+	.wrap.we-container {
+		background-size: auto 100%;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.wrap.we-container {
+		background-size: auto 100%;
 	}
 }
