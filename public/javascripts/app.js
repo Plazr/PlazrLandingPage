@@ -8,14 +8,13 @@ $(function() {
 
 		// $('.announcement-container').css({'height':windowHeight});
 		var annPadding = (windowHeight - $(annContainer).find('.container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
-		console.log(annPadding);
 		$(annContainer).css({'padding-top':annPadding,'padding-bottom':annPadding})
 
-		var annPadding = (windowHeight - $(aboutContainer).find('.container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
-		$(aboutContainer).css({'padding-top':annPadding,'padding-bottom':annPadding})
+		var aboutPadding = (windowHeight - $(aboutContainer).find('.container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
+		$(aboutContainer).css({'padding-top':aboutPadding,'padding-bottom':aboutPadding})
 
-		var annPadding = (windowHeight - $(weContainer).find('.container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
-		$(weContainer).css({'padding-top':annPadding,'padding-bottom':annPadding})
+		var wePadding = (windowHeight - $(weContainer).find('.container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
+		$(weContainer).css({'padding-top':wePadding,'padding-bottom':wePadding})
 	}
 
 	setPaddings();
