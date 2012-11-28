@@ -144,11 +144,16 @@ h2.head {
 }
 
 .wrap.we-container {
-	padding: 30em 0 16em 0;
+	padding: 24em 0 15em 0;
 	/*background-color: $intel-blue;*/
 	// background-color: $text;
-	background: url('../images/IMG_4556.JPG') no-repeat top left;
-	background-size: 100% auto;
+	// background: url('../images/IMG_4556.JPG') no-repeat top left;
+	// background-size: auto 100%;
+	background: url(../images/IMG_4556.JPG) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	color: $text;
 	h2 {
 		color: $text;
@@ -249,12 +254,12 @@ h2.head {
 		}
 	}
 	.wrap.we-container {
-		background-size: auto 100%;
+		// background-size: auto 100%;
 	}
 }
 
 @media (min-width: 768px) and (max-width: 979px) {
 	.wrap.we-container {
-		background-size: auto 100%;
+		// background-size: auto 100%;
 	}
 }
