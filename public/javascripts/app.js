@@ -10,6 +10,9 @@ $(function() {
 	var annPadding = (windowHeight - $('.about-container .container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
 	$('.about-container').css({'padding-top':annPadding,'padding-bottom':annPadding})
 
+	var annPadding = (windowHeight - $('.we-container .container').css('height').replace(/[^-\d\.]/g, ''))  / 2;
+	$('.we-container').css({'padding-top':annPadding,'padding-bottom':annPadding})
+
 	console.log(annPadding);
 	console.log(windowHeight);
 
